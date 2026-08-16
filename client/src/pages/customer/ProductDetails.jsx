@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { getImageUrl } from "../../utils/imageUrl";
 import {
   useParams,
 } from "react-router-dom";
@@ -847,9 +847,9 @@ function ProductDetails() {
   // ==========================================
 
   const productImage =
-    product.images?.length > 0
-      ? `http://localhost:8000${product.images[0]}`
-      : null;
+  product.images?.length > 0
+    ? getImageUrl(product.images[0])
+    : null;
 
   // ==========================================
   // RENT CALCULATIONS

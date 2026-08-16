@@ -92,13 +92,25 @@ export const uploadProfileImage = async (req, res) => {
       });
     }
 
-    // Upload to Cloudinary
-    const result = await uploadToCloudinary(
-      req.file.buffer,
-      "rentease/profiles"
-    );
+    const result = await new Promise((resolve, reject) => {
+      const uploadStream =
+        cloudinary.uploader.upload_stream(
+          {
+            folder: "rentease/profiles",
+            resource_type: "image",
+          },
+          (error, result) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(result);
+            }
+          }
+        );
 
-    // Save permanent Cloudinary URL
+      uploadStream.end(req.file.buffer);
+    });
+
     user.profileImage = result.secure_url;
 
     await user.save();
@@ -106,10 +118,10 @@ export const uploadProfileImage = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Profile image uploaded successfully",
-      profileImage: user.profileImage,
+      profileImage: result.secure_url,
     });
   } catch (error) {
-    console.error("PROFILE IMAGE UPLOAD ERROR:", error);
+    console.error("PROFILE IMAGE ERROR:", error);
 
     return res.status(500).json({
       success: false,
@@ -117,7 +129,6 @@ export const uploadProfileImage = async (req, res) => {
     });
   }
 };
-
 const uploadToCloudinary = (fileBuffer, folder) => {
   return new Promise((resolve, reject) => {
     cloudinary.uploader

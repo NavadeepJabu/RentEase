@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../services/productService";
 import "./Products.css";
+import { getImageUrl } from "../../utils/imageUrl";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -172,12 +173,12 @@ function Products() {
 
                   {product.images?.length > 0 ? (
                     <img
-                      src={`http://localhost:8000${product.images[0]}`}
-                      alt={product.name}
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
+  src={getImageUrl(product.images[0])}
+  alt={product.name}
+  onError={(e) => {
+    e.currentTarget.style.display = "none";
+  }}
+/>
                   ) : null}
 
                   <span className="rent-badge">

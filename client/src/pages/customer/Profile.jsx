@@ -4,7 +4,7 @@ import {
   updateProfile,
   uploadProfileImage,
 } from "../../services/profileService";
-
+import { getImageUrl } from "../../utils/imageUrl";
 import "./Profile.css";
 
 function Profile() {
@@ -176,10 +176,10 @@ function Profile() {
 
               {user.profileImage ? (
                 <img
-                  src={`http://localhost:8000${user.profileImage}`}
-                  alt="Profile"
-                  className="profile-avatar"
-                />
+  src={getImageUrl(user.profileImage)}
+  alt="Profile"
+  className="profile-avatar"
+/>
               ) : (
                 <div className="profile-avatar profile-avatar-placeholder">
                   👤

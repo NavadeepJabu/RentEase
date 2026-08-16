@@ -38,7 +38,6 @@ export const addProduct = async (req, res) => {
       quantity,
     } = req.body;
 
-    // Validation
     if (
       !name ||
       !category ||
@@ -57,38 +56,46 @@ export const addProduct = async (req, res) => {
     console.log("BODY:", req.body);
     console.log("FILES:", req.files?.length || 0);
 
-    // ==========================================
-    // UPLOAD PRODUCT IMAGES TO CLOUDINARY
-    // ==========================================
-
     const images = [];
 
     if (req.files && req.files.length > 0) {
       for (const file of req.files) {
-        const result = await uploadToCloudinary(
-          file.buffer,
-          "rentease/products"
+        const result = await new Promise(
+          (resolve, reject) => {
+            const uploadStream =
+              cloudinary.uploader.upload_stream(
+                {
+                  folder: "rentease/products",
+                  resource_type: "image",
+                },
+                (error, result) => {
+                  if (error) {
+                    reject(error);
+                  } else {
+                    resolve(result);
+                  }
+                }
+              );
+
+            uploadStream.end(file.buffer);
+          }
         );
 
         images.push(result.secure_url);
       }
     }
 
-    // ==========================================
-    // CREATE PRODUCT
-    // ==========================================
-
     const product = await Product.create({
       name,
       category,
       subCategory,
       brand,
+      images,
       description,
       monthlyRent,
       securityDeposit,
       rentalTenure,
       quantity,
-      images,
     });
 
     return res.status(201).json({
