@@ -27,10 +27,14 @@ router
   .route("/:id")
   .get(getProductById)
   .put(
-  protect,
-  adminOnly,
-  upload.array("images", 5),
-  updateProduct
-)
-  .delete(protect, adminOnly, deleteProduct);
+    protect,
+    adminOnly,
+    upload.array("images", 5),
+    updateProduct
+  )
+  .delete(
+    protect,
+    adminOnly,
+    deleteProduct
+  );
 export default router;

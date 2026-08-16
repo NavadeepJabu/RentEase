@@ -1,5 +1,28 @@
 import Product from "../models/Product.js";
 import asyncHandler from "../utils/asyncHandler.js";
+import cloudinary from "../config/cloudinary.js";
+
+
+const uploadToCloudinary = (fileBuffer, folder) => {
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream(
+        {
+          folder,
+          resource_type: "image",
+        },
+        (error, result) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(result);
+          }
+        }
+      )
+      .end(fileBuffer);
+  });
+};
+
 
 export const addProduct = async (req, res) => {
   try {
@@ -32,23 +55,40 @@ export const addProduct = async (req, res) => {
     }
 
     console.log("BODY:", req.body);
-    console.log("FILES:", req.files);
+    console.log("FILES:", req.files?.length || 0);
 
-    const images = req.files
-  ? req.files.map(file => `/uploads/products/${file.filename}`)
-  : [];
+    // ==========================================
+    // UPLOAD PRODUCT IMAGES TO CLOUDINARY
+    // ==========================================
+
+    const images = [];
+
+    if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        const result = await uploadToCloudinary(
+          file.buffer,
+          "rentease/products"
+        );
+
+        images.push(result.secure_url);
+      }
+    }
+
+    // ==========================================
+    // CREATE PRODUCT
+    // ==========================================
 
     const product = await Product.create({
       name,
       category,
       subCategory,
       brand,
-      images,
       description,
       monthlyRent,
       securityDeposit,
       rentalTenure,
       quantity,
+      images,
     });
 
     return res.status(201).json({
@@ -56,8 +96,9 @@ export const addProduct = async (req, res) => {
       message: "Product added successfully",
       product,
     });
-
   } catch (error) {
+    console.error("ADD PRODUCT ERROR:", error);
+
     return res.status(500).json({
       success: false,
       message: error.message,
@@ -65,23 +106,6 @@ export const addProduct = async (req, res) => {
   }
 };
 
-/*export const getProducts = async (req, res) => {
-  try {
-    const products = await Product.find();
-
-    return res.status(200).json({
-      success: true,
-      count: products.length,
-      products,
-    });
-
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};*/
 
 export const getProducts = asyncHandler(async (req, res) => {
 
@@ -172,8 +196,7 @@ export const getProductById = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
-    const product =
-      await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id);
 
     if (!product) {
       return res.status(404).json({
@@ -181,6 +204,10 @@ export const updateProduct = async (req, res) => {
         message: "Product not found",
       });
     }
+
+    // ==========================================
+    // UPDATE BASIC PRODUCT INFORMATION
+    // ==========================================
 
     const {
       name,
@@ -190,85 +217,61 @@ export const updateProduct = async (req, res) => {
       description,
       monthlyRent,
       securityDeposit,
-      rentalTenure,
       quantity,
+      rentalTenure,
     } = req.body;
 
-    // ==========================================
-    // UPDATE BASIC INFORMATION
-    // ==========================================
-
-    if (name !== undefined)
-      product.name = name;
-
-    if (category !== undefined)
-      product.category = category;
-
-    if (subCategory !== undefined)
+    if (name !== undefined) product.name = name;
+    if (category !== undefined) product.category = category;
+    if (subCategory !== undefined) {
       product.subCategory = subCategory;
-
-    if (brand !== undefined)
-      product.brand = brand;
-
-    if (description !== undefined)
+    }
+    if (brand !== undefined) product.brand = brand;
+    if (description !== undefined) {
       product.description = description;
-
-    // ==========================================
-    // RENTAL INFORMATION
-    // ==========================================
-
-    if (monthlyRent !== undefined)
-      product.monthlyRent =
-        Number(monthlyRent);
-
-    if (securityDeposit !== undefined)
-      product.securityDeposit =
-        Number(securityDeposit);
-
-    if (quantity !== undefined)
-      product.quantity =
-        Number(quantity);
-
-    if (rentalTenure !== undefined)
-      product.rentalTenure =
-        rentalTenure;
-
-    // ==========================================
-    // IMAGE UPDATE
-    // ==========================================
-
-    if (
-      req.files &&
-      req.files.length > 0
-    ) {
-      product.images =
-        req.files.map(
-          (file) =>
-            `/uploads/products/${file.filename}`
-        );
+    }
+    if (monthlyRent !== undefined) {
+      product.monthlyRent = monthlyRent;
+    }
+    if (securityDeposit !== undefined) {
+      product.securityDeposit = securityDeposit;
+    }
+    if (quantity !== undefined) {
+      product.quantity = quantity;
+    }
+    if (rentalTenure !== undefined) {
+      product.rentalTenure = rentalTenure;
     }
 
     // ==========================================
-    // AVAILABLE STATUS
+    // UPDATE PRODUCT IMAGES
     // ==========================================
 
-    product.available =
-      product.quantity > 0;
+    if (req.files && req.files.length > 0) {
+      const newImages = [];
+
+      for (const file of req.files) {
+        const result = await uploadToCloudinary(
+          file.buffer,
+          "rentease/products"
+        );
+
+        newImages.push(result.secure_url);
+      }
+
+      // Replace existing images
+      product.images = newImages;
+    }
 
     await product.save();
 
     return res.status(200).json({
       success: true,
-      message:
-        "Product updated successfully",
+      message: "Product updated successfully",
       product,
     });
-
   } catch (error) {
-    console.error(
-      "UPDATE PRODUCT ERROR:",
-      error
-    );
+    console.error("UPDATE PRODUCT ERROR:", error);
 
     return res.status(500).json({
       success: false,
