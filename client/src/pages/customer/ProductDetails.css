@@ -1,0 +1,1407 @@
+/* =========================================
+   RENT EASE - PRODUCT DETAILS
+========================================= */
+
+.product-details-page {
+  min-height: 100vh;
+
+  padding: 55px 6% 80px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(98, 92, 255, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(232, 91, 170, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #f4f2ff,
+      #fff7fb
+    );
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   GLOW
+========================================= */
+
+.details-glow {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.2;
+
+  pointer-events: none;
+
+  animation:
+    detailsGlow 7s ease-in-out infinite;
+}
+
+.details-glow-one {
+  top: 100px;
+  left: -160px;
+
+  background: #625cff;
+}
+
+.details-glow-two {
+  right: -160px;
+  bottom: 100px;
+
+  background: #e85baa;
+
+  animation-delay: 2s;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.product-details-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(400px, 0.9fr)
+    minmax(450px, 1.1fr);
+
+  gap: 55px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.product-details-image-section {
+  position: sticky;
+
+  top: 30px;
+}
+
+.product-details-image-card {
+  position: relative;
+
+  min-height: 520px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeecff,
+      #fff0f8
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 25px 65px rgba(55, 62, 120, 0.14);
+
+  backdrop-filter: blur(15px);
+
+  animation:
+    detailsImageAppear 0.7s ease;
+}
+
+.product-details-image {
+  width: 100%;
+
+  height: 520px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.6s ease;
+}
+
+.product-details-image-card:hover
+.product-details-image {
+  transform:
+    scale(1.04);
+}
+
+
+/* =========================================
+   IMAGE EMPTY
+========================================= */
+
+.product-image-empty {
+  width: 100%;
+
+  height: 520px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeeaff,
+      #fff1f8
+    );
+}
+
+.product-image-empty span {
+  font-size: 80px;
+
+  opacity: 0.35;
+}
+
+
+/* =========================================
+   AVAILABILITY
+========================================= */
+
+.availability-badge {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.88);
+
+  color: #128a4b;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 10px 25px rgba(50, 60, 110, 0.12);
+
+  backdrop-filter: blur(10px);
+}
+
+.availability-badge span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+
+/* =========================================
+   INFORMATION
+========================================= */
+
+.product-details-info {
+  animation:
+    detailsFadeUp 0.7s ease;
+}
+
+.details-category {
+  margin: 5px 0 10px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
+
+  background:
+    linear-gradient(
+      90deg,
+      #625cff,
+      #e85baa
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.product-details-info h1 {
+  margin: 0;
+
+  font-size: 48px;
+
+  line-height: 1.08;
+
+  letter-spacing: -2px;
+
+  color: #111827;
+}
+
+.details-brand {
+  margin: 10px 0;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+.details-rating {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 14px 0 22px;
+}
+
+.details-rating span {
+  letter-spacing: 3px;
+
+  font-size: 15px;
+
+  color: #f4b740;
+}
+
+.details-rating small {
+  color: #929aaa;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.details-price {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+.details-price strong {
+  font-size: 38px;
+
+  font-weight: 800;
+
+  color: #625cff;
+}
+
+.details-price span {
+  font-size: 15px;
+
+  color: #7b8497;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.details-description {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color: #667085;
+}
+
+
+/* =========================================
+   PRODUCT INFO
+========================================= */
+
+.product-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.product-info-item {
+  padding: 16px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 8px 25px rgba(55, 62, 120, 0.06);
+}
+
+.product-info-item span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 11px;
+
+  color: #8b95a7;
+}
+
+.product-info-item strong {
+  font-size: 14px;
+
+  color: #374151;
+}
+
+.rental-field input[type="date"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #0f172a;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.rental-field input[type="date"]:focus {
+  border-color: #818cf8;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+/* =========================================
+   ACTIONS
+========================================= */
+
+.product-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.product-actions button {
+  padding: 14px 22px;
+
+  border-radius: 13px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.add-cart-btn {
+  flex: 1;
+
+  border: none;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #625cff,
+      #a14bce,
+      #e85baa
+    );
+
+  box-shadow:
+    0 10px 25px rgba(98, 92, 255, 0.25);
+}
+
+.add-cart-btn:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 15px 32px rgba(98, 92, 255, 0.32);
+}
+
+.wishlist-btn {
+  border:
+    1px solid #e2e5ef;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  color: #475467;
+}
+
+.wishlist-btn:hover {
+  transform:
+    translateY(-3px);
+
+  border-color: #e85baa;
+
+  color: #d94d92;
+
+  box-shadow:
+    0 10px 25px rgba(232, 91, 170, 0.12);
+}
+
+
+/* =========================================
+   RENTAL SECTION
+========================================= */
+
+.rental-section {
+  margin-top: 30px;
+
+  padding: 28px;
+
+  border-radius: 25px;
+
+  background:
+    rgba(255, 255, 255, 0.84);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 20px 50px rgba(55, 62, 120, 0.1);
+
+  backdrop-filter: blur(18px);
+}
+
+.rental-section-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid #eef0f7;
+}
+
+.rental-section-header p {
+  margin: 0 0 5px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: #625cff;
+}
+
+.rental-section-header h2 {
+  margin: 0;
+
+  font-size: 21px;
+
+  color: #111827;
+}
+
+.rental-section-header > span {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeecff,
+      #ffeaf5
+    );
+
+  font-size: 22px;
+}
+
+
+/* =========================================
+   RENTAL FIELD
+========================================= */
+
+.rental-field {
+  margin-bottom: 20px;
+}
+
+.rental-field label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  color: #475467;
+}
+
+.rental-field select,
+.rental-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid #dfe3ed;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: white;
+
+  color: #344054;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rental-field select:focus,
+.rental-field textarea:focus {
+  border-color: #625cff;
+
+  box-shadow:
+    0 0 0 4px rgba(98, 92, 255, 0.1);
+}
+
+.rental-field textarea {
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   QUANTITY
+========================================= */
+
+.quantity-control {
+  width: fit-content;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 6px;
+
+  border:
+    1px solid #dfe3ed;
+
+  border-radius: 12px;
+
+  background: white;
+}
+
+.quantity-control button {
+  width: 35px;
+  height: 35px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    #f0efff;
+
+  color: #625cff;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.quantity-control button:hover {
+  transform:
+    scale(1.05);
+
+  background:
+    #e7e5ff;
+}
+
+.quantity-control span {
+  min-width: 20px;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  color: #344054;
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.rental-summary {
+  margin-top: 25px;
+
+  padding: 18px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7f6ff,
+      #fff5fa
+    );
+}
+
+.rental-summary > div {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 8px 0;
+}
+
+.rental-summary span {
+  font-size: 13px;
+
+  color: #727b91;
+}
+
+.rental-summary strong {
+  font-size: 14px;
+
+  color: #374151;
+}
+
+.rental-summary .summary-total {
+  margin-top: 10px;
+
+  padding-top: 15px;
+
+  border-top:
+    1px solid #e7e5f2;
+}
+
+.summary-total span {
+  font-weight: 800;
+
+  color: #374151;
+}
+
+.summary-total strong {
+  font-size: 21px;
+
+  color: #625cff;
+}
+
+
+/* =========================================
+   RENT BUTTON
+========================================= */
+
+.rent-now-btn {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #625cff,
+      #a14bce,
+      #e85baa
+    );
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px rgba(98, 92, 255, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rent-now-btn span {
+  font-size: 20px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.rent-now-btn:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 17px 35px rgba(98, 92, 255, 0.32);
+}
+
+.rent-now-btn:hover span {
+  transform:
+    translateX(5px);
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.product-details-loading {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #fff5fb
+    );
+
+  color: #68738a;
+}
+
+.product-details-spinner {
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 15px;
+
+  border:
+    4px solid #e8e6ff;
+
+  border-top-color: #625cff;
+
+  border-radius: 50%;
+
+  animation:
+    detailsSpin 0.8s linear infinite;
+}
+
+
+/* =========================================
+   NOT FOUND
+========================================= */
+
+.product-not-found {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #fff5fb
+    );
+}
+
+.product-not-found > div {
+  font-size: 60px;
+
+  opacity: 0.6;
+}
+
+.product-not-found h2 {
+  margin-bottom: 5px;
+
+  color: #111827;
+}
+
+.product-not-found p {
+  color: #727b91;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes detailsImageAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+@keyframes detailsFadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes detailsGlow {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(30px, -20px);
+  }
+}
+
+@keyframes detailsSpin {
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+  .product-details-page {
+    padding:
+      40px 25px 60px;
+  }
+
+  .product-details-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .product-details-image-section {
+    position: relative;
+
+    top: 0;
+  }
+
+  .product-details-image-card {
+    min-height: 400px;
+  }
+
+  .product-details-image,
+  .product-image-empty {
+    height: 400px;
+  }
+
+  .product-details-info h1 {
+    font-size: 40px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .product-details-page {
+    padding:
+      30px 18px 50px;
+  }
+
+  .product-details-image-card {
+    min-height: 320px;
+
+    border-radius: 22px;
+  }
+
+  .product-details-image,
+  .product-image-empty {
+    height: 320px;
+  }
+
+  .product-details-info h1 {
+    font-size: 34px;
+  }
+
+  .details-price strong {
+    font-size: 32px;
+  }
+
+  .product-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .product-actions button {
+    width: 100%;
+  }
+
+  .rental-section {
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+}
+
+/* =========================================
+   SERVICE AREA / PINCODE
+========================================= */
+
+.rental-field input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border: 1px solid #dfe3ed;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: white;
+
+  color: #344054;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rental-field input[type="text"]:focus {
+  border-color: #625cff;
+
+  box-shadow:
+    0 0 0 4px rgba(98, 92, 255, 0.1);
+}
+
+
+/* =========================================
+   SERVICE CHECK BUTTON
+========================================= */
+
+.service-check-btn {
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 0 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #625cff,
+      #e85baa
+    );
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.service-check-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(98, 92, 255, 0.25);
+}
+
+.service-check-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =========================================
+   SERVICE AVAILABILITY MESSAGE
+========================================= */
+
+.service-availability-message {
+  margin-top: 12px;
+
+  padding: 13px 15px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  font-weight: 600;
+}
+
+.service-availability-message.available {
+  background: #eafaf1;
+
+  border: 1px solid #bbebd0;
+
+  color: #16834d;
+}
+
+.service-availability-message.unavailable {
+  background: #fff1f2;
+
+  border: 1px solid #fecdd3;
+
+  color: #be123c;
+}
+
+.service-area-location {
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   RENT BUTTON DISABLED
+========================================= */
+
+.rent-now-btn:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+.rent-now-btn:disabled:hover {
+  transform: none;
+
+  box-shadow: none;
+}
+
+.rent-now-btn:disabled span {
+  transform: none;
+}
+
+
+/* =========================================
+   PIN CODE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .service-check-btn {
+    padding: 0 12px;
+
+    font-size: 12px;
+  }
+
+}
+
+/* =========================================
+   WISHLIST BUTTON
+========================================= */
+
+.wishlist-btn {
+  min-width: 145px;
+
+  border:
+    1px solid #e2e5ef;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  color: #475467;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+}
+
+
+/* =========================================
+   WISHLIST HEART
+========================================= */
+
+.wishlist-heart-icon {
+  font-size: 21px;
+
+  line-height: 1;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+/* =========================================
+   NORMAL HOVER
+========================================= */
+
+.wishlist-btn:hover {
+
+  transform:
+    translateY(-3px);
+
+  border-color:
+    #e85baa;
+
+  color:
+    #d94d92;
+
+  box-shadow:
+    0 10px 25px
+    rgba(232, 91, 170, 0.12);
+}
+
+
+/* =========================================
+   ACTIVE / WISHLISTED
+========================================= */
+
+.wishlist-btn.active {
+
+  border-color:
+    #ff4d6d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0f3,
+      #ffe5eb
+    );
+
+  color:
+    #e11d48;
+
+  box-shadow:
+    0 10px 25px
+    rgba(225, 29, 72, 0.14);
+}
+
+
+.wishlist-btn.active
+.wishlist-heart-icon {
+
+  color:
+    #e11d48;
+
+  font-size:
+    22px;
+
+  transform:
+    scale(1.05);
+}
+
+
+.wishlist-btn.active:hover {
+
+  border-color:
+    #e11d48;
+
+  color:
+    #be123c;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe5eb,
+      #ffd9e1
+    );
+
+  box-shadow:
+    0 12px 28px
+    rgba(225, 29, 72, 0.20);
+}
+
+
+/* =========================================
+   DISABLED WHILE UPDATING
+========================================= */
+
+.wishlist-btn:disabled {
+
+  opacity:
+    0.65;
+
+  cursor:
+    not-allowed;
+
+  transform:
+    none;
+
+  box-shadow:
+    none;
+}
+
+
+.wishlist-btn:disabled:hover {
+
+  transform:
+    none;
+
+  box-shadow:
+    none;
+}
+

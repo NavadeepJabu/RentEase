@@ -1,0 +1,1233 @@
+/* =====================================================
+   RENT EASE - ADMIN RETURNS
+===================================================== */
+
+.admin-returns-page {
+  min-height: calc(100vh - 80px);
+
+  padding: 45px 5% 80px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(99, 102, 241, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(236, 72, 153, 0.08),
+      transparent 30%
+    ),
+    #f8fafc;
+
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   GLOW
+===================================================== */
+
+.returns-glow {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.25;
+
+  pointer-events: none;
+}
+
+.returns-glow-one {
+  top: 100px;
+  left: -150px;
+
+  background: #c7d2fe;
+}
+
+.returns-glow-two {
+  right: -150px;
+  bottom: 100px;
+
+  background: #fbcfe8;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.returns-header {
+  max-width: 1400px;
+
+  margin: 0 auto 40px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 30px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.returns-label {
+  margin: 0 0 8px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: #6366f1;
+}
+
+.returns-header h1 {
+  margin: 0;
+
+  font-size: clamp(36px, 4vw, 52px);
+
+  line-height: 1.1;
+
+  color: #172033;
+}
+
+.returns-subtitle {
+  margin-top: 12px;
+
+  max-width: 700px;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   COUNT
+===================================================== */
+
+.returns-count {
+  min-width: 130px;
+
+  padding: 20px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid #e8edf5;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(15, 23, 42, 0.08);
+
+  flex-shrink: 0;
+}
+
+.returns-count strong {
+  display: block;
+
+  font-size: 30px;
+
+  color: #172033;
+}
+
+.returns-count span {
+  font-size: 12px;
+
+  color: #94a3b8;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.returns-grid {
+  max-width: 1400px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(360px, 1fr)
+    );
+
+  gap: 25px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.return-card {
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #e8edf5;
+
+  border-radius: 24px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 8px 30px
+    rgba(15, 23, 42, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  box-sizing: border-box;
+}
+
+.return-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 18px 40px
+    rgba(15, 23, 42, 0.12);
+}
+
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.return-card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding-bottom: 18px;
+
+  border-bottom:
+    1px solid #eef2f7;
+}
+
+.return-card-header small,
+.return-product small,
+.return-customer small {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  color: #94a3b8;
+
+  margin-bottom: 6px;
+}
+
+.return-card-header strong {
+  font-size: 15px;
+
+  color: #172033;
+}
+
+
+/* =====================================================
+   RETURN STATUS
+===================================================== */
+
+.return-status {
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.return-requested {
+  background: #fff7ed;
+
+  color: #c2410c;
+}
+
+.return-approved {
+  background: #ecfdf5;
+
+  color: #047857;
+}
+
+.return-rejected {
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+.return-completed {
+  background: #eef2ff;
+
+  color: #4338ca;
+}
+
+
+/* =====================================================
+   PRODUCT
+===================================================== */
+
+.return-product {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 22px 0;
+}
+
+.return-product-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #fdf2f8
+    );
+
+  font-size: 25px;
+
+  flex-shrink: 0;
+}
+
+.return-product h2 {
+  margin: 0;
+
+  font-size: 19px;
+
+  line-height: 1.3;
+
+  color: #172033;
+}
+
+.return-product p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   CUSTOMER
+===================================================== */
+
+.return-customer {
+  padding: 16px;
+
+  margin-bottom: 18px;
+
+  background: #f8fafc;
+
+  border-radius: 14px;
+
+  border: 1px solid #eef2f7;
+}
+
+.return-customer h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: #172033;
+}
+
+.return-customer p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   RENTAL DETAILS
+===================================================== */
+
+.return-details {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.return-details div {
+  padding: 13px;
+
+  background: #f8fafc;
+
+  border-radius: 12px;
+
+  border: 1px solid #eef2f7;
+}
+
+.return-details span {
+  display: block;
+
+  font-size: 11px;
+
+  color: #94a3b8;
+
+  margin-bottom: 5px;
+}
+
+.return-details strong {
+  font-size: 14px;
+
+  color: #172033;
+}
+
+
+/* =====================================================
+   RETURN REQUEST
+===================================================== */
+
+.return-request-box {
+  padding: 16px;
+
+  margin-bottom: 15px;
+
+  border-radius: 14px;
+
+  background: #fff7ed;
+
+  border: 1px solid #fed7aa;
+}
+
+.return-request-box span {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+
+  color: #c2410c;
+}
+
+.return-request-box p {
+  margin: 7px 0 0;
+
+  color: #431407;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   ADDRESS
+===================================================== */
+
+.return-address {
+  padding: 16px;
+
+  margin-bottom: 15px;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  border: 1px solid #eef2f7;
+}
+
+.return-address span {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  color: #64748b;
+}
+
+.return-address p {
+  margin: 7px 0 0;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: #334155;
+}
+
+
+/* =====================================================
+   DAMAGE INSPECTION
+===================================================== */
+
+.damage-inspection {
+  margin-top: 18px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #fff8fb
+    );
+
+  border: 1px solid #e5e7f5;
+}
+
+.damage-inspection-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+.damage-inspection-header > div:first-child {
+  min-width: 0;
+}
+
+.damage-inspection-header > div:first-child > span {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+  color: #6366f1;
+}
+
+.damage-inspection-header h3 {
+  margin: 5px 0 0;
+
+  font-size: 16px;
+
+  color: #172033;
+}
+
+
+/* =====================================================
+   DAMAGE STATUS BADGE
+===================================================== */
+
+.damage-status-badge {
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.damage-not-inspected {
+  background: #f1f5f9;
+
+  color: #64748b;
+}
+
+.damage-no-damage {
+  background: #ecfdf5;
+
+  color: #047857;
+}
+
+.damage-damaged {
+  background: #fef2f2;
+
+  color: #b91c1c;
+}
+
+
+/* =====================================================
+   DAMAGE FIELDS
+===================================================== */
+
+.damage-field {
+  margin-top: 15px;
+}
+
+.damage-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color: #475569;
+}
+
+.damage-field select,
+.damage-field textarea,
+.damage-field input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 11px;
+
+  background: white;
+
+  color: #172033;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.damage-field select {
+  padding: 12px;
+}
+
+.damage-field textarea {
+  padding: 12px;
+
+  resize: vertical;
+
+  min-height: 80px;
+
+  line-height: 1.5;
+
+  font-family: inherit;
+}
+
+.damage-field input {
+  padding: 12px;
+}
+
+.damage-field select:focus,
+.damage-field textarea:focus,
+.damage-field input:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(99, 102, 241, 0.1);
+}
+
+.damage-field select:disabled,
+.damage-field textarea:disabled,
+.damage-field input:disabled {
+  background: #f1f5f9;
+
+  color: #94a3b8;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   DAMAGE CHARGE
+===================================================== */
+
+.damage-charge-input {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.damage-charge-input > span {
+  position: absolute;
+
+  left: 13px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #64748b;
+
+  pointer-events: none;
+}
+
+.damage-charge-input input {
+  padding-left: 30px;
+}
+
+.damage-field > small {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 10px;
+
+  color: #94a3b8;
+}
+
+
+/* =====================================================
+   SAVED DAMAGE INFORMATION
+===================================================== */
+
+.damage-box {
+  padding: 16px;
+
+  margin-top: 15px;
+
+  margin-bottom: 15px;
+
+  border-radius: 14px;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+}
+
+.damage-box span {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  color: #b91c1c;
+}
+
+.damage-box strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #991b1b;
+}
+
+.damage-box p {
+  margin: 7px 0 0;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: #7f1d1d;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.return-actions {
+  padding-top: 18px;
+
+  margin-top: 18px;
+
+  border-top:
+    1px solid #eef2f7;
+}
+
+.return-actions label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  color: #475569;
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.return-action-buttons {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+}
+
+.return-action-buttons button,
+.return-complete-btn {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 12px 15px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.return-action-buttons button:hover,
+.return-complete-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   APPROVE
+===================================================== */
+
+.return-approve-btn {
+  background: #ecfdf5;
+
+  color: #047857;
+
+  border: 1px solid #a7f3d0 !important;
+}
+
+.return-approve-btn:hover {
+  box-shadow:
+    0 8px 20px
+    rgba(16, 185, 129, 0.15);
+}
+
+
+/* =====================================================
+   REJECT
+===================================================== */
+
+.return-reject-btn {
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  border: 1px solid #fecaca !important;
+}
+
+.return-reject-btn:hover {
+  box-shadow:
+    0 8px 20px
+    rgba(239, 68, 68, 0.12);
+}
+
+
+/* =====================================================
+   COMPLETE
+===================================================== */
+
+.return-complete-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #7c3aed
+    );
+
+  color: white;
+
+  box-shadow:
+    0 8px 20px
+    rgba(99, 102, 241, 0.2);
+}
+
+.return-complete-btn:hover {
+  box-shadow:
+    0 12px 28px
+    rgba(99, 102, 241, 0.3);
+}
+
+
+/* =====================================================
+   COMPLETED MESSAGE
+===================================================== */
+
+.return-completed-message {
+  padding: 15px;
+
+  border-radius: 13px;
+
+  background: #ecfdf5;
+
+  border: 1px solid #a7f3d0;
+
+  color: #047857;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+.return-completed-message span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  color: #15803d;
+}
+
+
+/* =====================================================
+   REJECTED MESSAGE
+===================================================== */
+
+.return-rejected-message {
+  padding: 15px;
+
+  border-radius: 13px;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+
+  color: #b91c1c;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+.return-rejected-message span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  color: #991b1b;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.returns-empty {
+  max-width: 600px;
+
+  margin: 70px auto;
+
+  padding: 60px 30px;
+
+  text-align: center;
+
+  background: white;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 35px
+    rgba(15, 23, 42, 0.07);
+
+  position: relative;
+
+  z-index: 2;
+
+  box-sizing: border-box;
+}
+
+.returns-empty-icon {
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #eef2ff;
+
+  font-size: 35px;
+}
+
+.returns-empty h2 {
+  margin: 0;
+
+  color: #172033;
+}
+
+.returns-empty p {
+  color: #64748b;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.returns-loading {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #64748b;
+}
+
+.returns-spinner {
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 15px;
+
+  border:
+    4px solid #e2e8f0;
+
+  border-top-color: #6366f1;
+
+  border-radius: 50%;
+
+  animation:
+    returnSpin 0.8s linear infinite;
+}
+
+.returns-loading p {
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+@keyframes returnSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .admin-returns-page {
+    padding: 35px 25px 60px;
+  }
+
+  .returns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .return-card {
+    max-width: 700px;
+
+    width: 100%;
+
+    margin: 0 auto;
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .admin-returns-page {
+    padding: 30px 15px 50px;
+  }
+
+  .returns-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .returns-count {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .returns-header h1 {
+    font-size: 34px;
+  }
+
+  .returns-subtitle {
+    font-size: 14px;
+  }
+
+  .returns-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .return-card {
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .return-card-header {
+    align-items: flex-start;
+  }
+
+  .return-product {
+    align-items: flex-start;
+  }
+
+  .return-product-icon {
+    width: 50px;
+    height: 50px;
+
+    font-size: 22px;
+  }
+
+  .return-product h2 {
+    font-size: 17px;
+  }
+
+  .return-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .damage-inspection {
+    padding: 15px;
+  }
+
+  .damage-inspection-header {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .damage-status-badge {
+    align-self: flex-start;
+  }
+
+  .return-action-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+  .admin-returns-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .return-card {
+    padding: 16px;
+  }
+
+  .return-details {
+    grid-template-columns: 1fr;
+  }
+
+  .return-card-header {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .return-status {
+    align-self: flex-start;
+  }
+
+  .return-product {
+    gap: 10px;
+  }
+
+  .return-product-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .damage-field textarea {
+    min-height: 95px;
+  }
+}

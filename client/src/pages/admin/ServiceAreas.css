@@ -1,0 +1,544 @@
+/* =========================================
+   SERVICE AREAS PAGE
+========================================= */
+
+.service-areas-page {
+  min-height: 100vh;
+  padding: 50px 30px;
+  position: relative;
+  overflow: hidden;
+  background: #f7f7f8;
+  color: #1f1f1f;
+}
+
+.service-areas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.service-areas-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.service-areas-glow-one {
+  width: 300px;
+  height: 300px;
+  background: #e8e8e8;
+  top: 50px;
+  right: -100px;
+}
+
+.service-areas-glow-two {
+  width: 250px;
+  height: 250px;
+  background: #eeeeee;
+  bottom: 100px;
+  left: -100px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.service-areas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.service-areas-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.service-areas-header h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.service-areas-subtitle {
+  margin-top: 12px;
+  color: #777;
+  font-size: 15px;
+}
+
+.service-areas-count {
+  min-width: 140px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-areas-count strong {
+  display: block;
+  font-size: 32px;
+}
+
+.service-areas-count span {
+  font-size: 12px;
+  color: #777;
+}
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.service-area-form-card {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 45px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.service-area-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.service-area-form-header p {
+  margin: 0 0 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #888;
+}
+
+.service-area-form-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.service-area-form-header span {
+  font-size: 32px;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.service-area-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.service-area-field {
+  margin-bottom: 20px;
+}
+
+.service-area-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.service-area-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.service-area-field input:focus {
+  border-color: #222;
+}
+
+.service-area-field small {
+  display: block;
+  margin-top: 7px;
+  color: #888;
+  font-size: 12px;
+}
+
+/* =========================================
+   CHECKBOXES
+========================================= */
+
+.service-area-checkboxes {
+  display: flex;
+  gap: 25px;
+  margin: 5px 0 25px;
+  flex-wrap: wrap;
+}
+
+.service-area-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.service-area-checkboxes input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* =========================================
+   FORM BUTTONS
+========================================= */
+
+.service-area-form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.service-area-save-btn,
+.service-area-cancel-btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.service-area-save-btn {
+  background: #222;
+  color: #fff;
+}
+
+.service-area-save-btn:hover {
+  background: #000;
+}
+
+.service-area-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.service-area-cancel-btn {
+  background: #eee;
+  color: #333;
+}
+
+/* =========================================
+   LIST HEADER
+========================================= */
+
+.service-area-list-section {
+  margin-top: 10px;
+}
+
+.service-area-list-header {
+  margin-bottom: 20px;
+}
+
+.service-area-list-header p {
+  margin: 0 0 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #888;
+}
+
+.service-area-list-header h2 {
+  margin: 0;
+  font-size: 27px;
+}
+
+/* =========================================
+   AREA GRID
+========================================= */
+
+.service-area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* =========================================
+   AREA CARD
+========================================= */
+
+.service-area-card {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 15px;
+  padding: 22px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.service-area-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.service-area-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.service-area-location-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.area-active,
+.area-inactive {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.area-active {
+  background: #e8f7ed;
+  color: #218838;
+}
+
+.area-inactive {
+  background: #f5e8e8;
+  color: #b42323;
+}
+
+.service-area-card h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.service-area-state {
+  margin: 5px 0 20px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.service-area-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.service-area-details div {
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.service-area-details span {
+  display: block;
+  color: #888;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.service-area-details strong {
+  font-size: 14px;
+}
+
+/* =========================================
+   PIN CODES
+========================================= */
+
+.service-area-pincodes {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.service-area-pincodes span {
+  background: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 11px;
+  color: #555;
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.service-area-actions {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.area-edit-btn,
+.area-delete-btn {
+  flex: 1;
+  padding: 9px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.area-edit-btn {
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+}
+
+.area-delete-btn {
+  background: #fff;
+  color: #d22;
+  border: 1px solid #ddd;
+}
+
+.area-edit-btn:hover {
+  background: #000;
+}
+
+.area-delete-btn:hover {
+  background: #faf0f0;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.service-area-empty {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.service-area-empty div {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.service-area-empty h2 {
+  margin: 0 0 8px;
+}
+
+.service-area-empty p {
+  color: #888;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.service-area-loading {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+}
+
+.service-area-spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #ddd;
+  border-top-color: #222;
+  border-radius: 50%;
+  animation: serviceAreaSpin 0.8s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes serviceAreaSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .service-area-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .service-areas-page {
+    padding: 30px 15px;
+  }
+
+  .service-areas-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-areas-header h1 {
+    font-size: 32px;
+  }
+
+  .service-areas-count {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .service-area-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .service-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-area-form-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .service-area-form-actions {
+    flex-direction: column;
+  }
+
+  .service-area-save-btn,
+  .service-area-cancel-btn {
+    width: 100%;
+  }
+
+  .service-area-details {
+    grid-template-columns: 1fr;
+  }
+}

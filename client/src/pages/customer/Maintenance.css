@@ -1,0 +1,1017 @@
+/* =========================================
+   RENT EASE - MAINTENANCE
+========================================= */
+
+.maintenance-page {
+  min-height: 100vh;
+
+  padding: 55px 6% 80px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(98, 92, 255, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(232, 91, 170, 0.13),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #f4f2ff,
+      #fff7fb
+    );
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.maintenance-glow {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.2;
+
+  pointer-events: none;
+
+  animation:
+    maintenanceGlow 7s ease-in-out infinite;
+}
+
+.maintenance-glow-one {
+  top: 100px;
+  left: -160px;
+
+  background: #625cff;
+}
+
+.maintenance-glow-two {
+  right: -160px;
+  bottom: 100px;
+
+  background: #e85baa;
+
+  animation-delay: 2s;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.maintenance-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.maintenance-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 35px;
+
+  animation:
+    maintenanceFadeUp 0.6s ease;
+}
+
+.maintenance-label {
+  margin: 0 0 8px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #625cff,
+      #e85baa
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.maintenance-header h1 {
+  margin: 0;
+
+  font-size: 45px;
+
+  letter-spacing: -1.8px;
+
+  color: #111827;
+}
+
+.maintenance-header > div:first-child > p:last-child {
+  margin: 10px 0 0;
+
+  color: #737d91;
+
+  font-size: 15px;
+}
+
+.maintenance-icon {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 23px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeecff,
+      #ffeaf5
+    );
+
+  font-size: 35px;
+
+  box-shadow:
+    0 15px 35px rgba(55, 62, 120, 0.1);
+
+  animation:
+    maintenanceFloat 4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.maintenance-form-card {
+  padding: 30px;
+
+  border-radius: 25px;
+
+  background:
+    rgba(255, 255, 255, 0.86);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 18px 50px rgba(55, 62, 120, 0.09);
+
+  backdrop-filter: blur(18px);
+
+  animation:
+    maintenanceFadeUp 0.7s ease;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 27px;
+}
+
+.section-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeecff,
+      #ffeaf5
+    );
+
+  font-size: 23px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 22px;
+
+  color: #1f2937;
+}
+
+.section-heading p {
+  margin: 4px 0 0;
+
+  color: #858fa1;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.maintenance-field {
+  margin-bottom: 20px;
+}
+
+.maintenance-field label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  color: #4b5563;
+
+  letter-spacing: 0.3px;
+}
+
+.maintenance-field input,
+.maintenance-field select,
+.maintenance-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border:
+    1px solid #e2e5ed;
+
+  border-radius: 12px;
+
+  background:
+    rgba(249, 250, 253, 0.9);
+
+  color: #374151;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.maintenance-field textarea {
+  resize: vertical;
+
+  min-height: 120px;
+}
+
+.maintenance-field input::placeholder,
+.maintenance-field textarea::placeholder {
+  color: #a4abb8;
+}
+
+.maintenance-field input:focus,
+.maintenance-field select:focus,
+.maintenance-field textarea:focus {
+  border-color: #8c86ff;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(98, 92, 255, 0.08);
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.maintenance-submit-btn {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 175px;
+
+  padding: 13px 22px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #625cff,
+      #a14bce,
+      #e85baa
+    );
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(98, 92, 255, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.maintenance-submit-btn:hover:not(:disabled) {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(98, 92, 255, 0.3);
+}
+
+.maintenance-submit-btn:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+.maintenance-submit-btn span:last-child {
+  font-size: 17px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.maintenance-submit-btn:hover span:last-child {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================
+   MY REQUESTS
+========================================= */
+
+.my-maintenance-section {
+  margin-top: 55px;
+}
+
+.requests-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.small-heading {
+  margin: 0 0 5px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: #625cff;
+}
+
+.requests-heading h2 {
+  margin: 0;
+
+  font-size: 27px;
+
+  color: #1f2937;
+}
+
+.requests-heading > div:first-child > p:last-child {
+  margin: 6px 0 0;
+
+  color: #858fa1;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   COUNT
+========================================= */
+
+.request-count {
+  min-width: 85px;
+
+  padding: 12px 17px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 10px 25px rgba(55, 62, 120, 0.07);
+}
+
+.request-count strong {
+  font-size: 22px;
+
+  color: #625cff;
+}
+
+.request-count span {
+  font-size: 9px;
+
+  color: #8b95a7;
+}
+
+
+/* =========================================
+   REQUEST LIST
+========================================= */
+
+.maintenance-requests {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+
+/* =========================================
+   REQUEST CARD
+========================================= */
+
+.maintenance-request-card {
+  padding: 22px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.86);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 12px 35px rgba(55, 62, 120, 0.07);
+
+  backdrop-filter: blur(15px);
+
+  animation:
+    requestAppear 0.5s ease both;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.maintenance-request-card:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 18px 40px rgba(55, 62, 120, 0.11);
+}
+
+
+/* =========================================
+   REQUEST TOP
+========================================= */
+
+.request-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-bottom: 17px;
+
+  border-bottom:
+    1px solid #eef0f7;
+}
+
+.request-product {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.request-product-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeecff,
+      #ffeaf5
+    );
+
+  font-size: 20px;
+}
+
+.request-product p {
+  margin: 0 0 3px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+
+  color: #9aa2b1;
+}
+
+.request-product h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: #1f2937;
+}
+
+.request-product span {
+  font-size: 11px;
+
+  color: #8a94a5;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.maintenance-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.maintenance-status > span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.maintenance-status-pending {
+  background: #fff7ed;
+
+  color: #c2410c;
+}
+
+.maintenance-status-pending > span {
+  background: #f97316;
+}
+
+.maintenance-status-progress {
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.maintenance-status-progress > span {
+  background: #2563eb;
+}
+
+.maintenance-status-resolved {
+  background: #ecfdf3;
+
+  color: #15803d;
+}
+
+.maintenance-status-resolved > span {
+  background: #16a34a;
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.request-details {
+  display: grid;
+
+  grid-template-columns:
+    0.7fr
+    1.3fr;
+
+  gap: 25px;
+
+  padding: 18px 0;
+}
+
+.request-detail span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: #9aa2b1;
+}
+
+.request-detail strong {
+  font-size: 13px;
+
+  color: #4b5563;
+}
+
+.request-detail p {
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color: #687386;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.request-footer {
+  padding-top: 13px;
+
+  border-top:
+    1px solid #eef0f7;
+
+  color: #9aa2b1;
+
+  font-size: 9px;
+}
+
+.request-footer strong {
+  color: #687386;
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty-maintenance {
+  padding: 55px 25px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 15px 40px rgba(55, 62, 120, 0.07);
+}
+
+.empty-maintenance-icon {
+  width: 75px;
+  height: 75px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 15px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeecff,
+      #ffeaf5
+    );
+
+  font-size: 32px;
+}
+
+.empty-maintenance h3 {
+  margin: 0;
+
+  color: #1f2937;
+}
+
+.empty-maintenance p {
+  margin: 7px 0 0;
+
+  color: #858fa1;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.maintenance-loading {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #fff5fb
+    );
+
+  color: #68738a;
+}
+
+.maintenance-spinner {
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 15px;
+
+  border:
+    4px solid #e8e6ff;
+
+  border-top-color: #625cff;
+
+  border-radius: 50%;
+
+  animation:
+    maintenanceSpin 0.8s linear infinite;
+}
+
+
+/* =========================================
+   BUTTON SPINNER
+========================================= */
+
+.button-spinner {
+  width: 13px;
+  height: 13px;
+
+  border:
+    2px solid rgba(255,255,255,0.4);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation:
+    maintenanceSpin 0.7s linear infinite;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes maintenanceFadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes requestAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes maintenanceGlow {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(30px, -20px);
+  }
+}
+
+@keyframes maintenanceFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-7px);
+  }
+}
+
+@keyframes maintenanceSpin {
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .maintenance-page {
+    padding:
+      35px 18px 55px;
+  }
+
+  .maintenance-header {
+    align-items: flex-start;
+  }
+
+  .maintenance-header h1 {
+    font-size: 37px;
+  }
+
+  .maintenance-icon {
+    width: 60px;
+    height: 60px;
+
+    font-size: 27px;
+  }
+
+  .maintenance-form-card {
+    padding: 22px;
+  }
+
+  .requests-heading {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .requests-heading h2 {
+    font-size: 23px;
+  }
+
+  .request-details {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .maintenance-header {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .maintenance-header h1 {
+    font-size: 34px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .request-top {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .maintenance-status {
+    align-self: flex-start;
+  }
+
+  .requests-heading {
+    flex-direction: column;
+  }
+
+  .request-count {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    gap: 8px;
+  }
+
+  .request-count strong {
+    font-size: 20px;
+  }
+}

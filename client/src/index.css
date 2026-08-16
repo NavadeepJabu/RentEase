@@ -1,0 +1,366 @@
+/* =========================================
+   RENTEASE - GLOBAL DESIGN SYSTEM
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  color: #171c31;
+
+  background: #f8f9ff;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: #665cff;
+  color: white;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f3f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7c8d8;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8f8ba8;
+}
+
+/* =========================================
+   COMMON CONTAINER
+========================================= */
+
+.page-container {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+/* =========================================
+   COMMON LABEL
+========================================= */
+
+.page-label {
+  margin: 0 0 8px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: #665cff;
+}
+
+/* =========================================
+   COMMON PAGE TITLE
+========================================= */
+
+.page-title {
+  margin: 0;
+
+  font-size: clamp(38px, 5vw, 58px);
+
+  line-height: 1.05;
+
+  font-weight: 850;
+
+  letter-spacing: -3px;
+
+  color: #12172a;
+}
+
+.page-subtitle {
+  margin: 12px 0 0;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  color: #69738d;
+}
+
+/* =========================================
+   COMMON CARD
+========================================= */
+
+.glass-card {
+  background:
+    rgba(255, 255, 255, 0.86);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.95);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 18px 45px rgba(39, 42, 80, 0.08);
+
+  backdrop-filter: blur(18px);
+}
+
+/* =========================================
+   COMMON BUTTON
+========================================= */
+
+.primary-btn {
+  border: none;
+
+  padding: 13px 20px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #665cff,
+      #7d6cff
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(102, 92, 255, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(102, 92, 255, 0.28);
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
+
+.secondary-btn {
+  border: 1px solid #e1e3ec;
+
+  padding: 12px 19px;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #3e4558;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: #f7f7fb;
+
+  border-color: #cfd2df;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   DANGER BUTTON
+========================================= */
+
+.danger-btn {
+  border: none;
+
+  padding: 12px 18px;
+
+  border-radius: 12px;
+
+  background: #fff0f2;
+
+  color: #d64255;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.danger-btn:hover {
+  background: #ffe0e5;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   COMMON FORM ELEMENTS
+========================================= */
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #665cff !important;
+
+  box-shadow:
+    0 0 0 4px rgba(102, 92, 255, 0.09);
+}
+
+/* =========================================
+   COMMON EMPTY STATE
+========================================= */
+
+.empty-state {
+  max-width: 600px;
+
+  margin: 70px auto;
+
+  padding: 60px 30px;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.85);
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 50px rgba(39, 42, 80, 0.08);
+}
+
+.empty-state-icon {
+  font-size: 45px;
+
+  margin-bottom: 15px;
+}
+
+.empty-state h2 {
+  margin: 0;
+
+  color: #171c31;
+}
+
+.empty-state p {
+  margin-top: 8px;
+
+  color: #7b8399;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .page-container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .page-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page-title {
+    font-size: 40px;
+
+    letter-spacing: -2px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+
+}
