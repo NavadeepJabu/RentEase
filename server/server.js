@@ -28,14 +28,12 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://rent-ease-nine-xi.vercel.app",
-];
+  process.env.FRONTEND_URL,
+].filter(Boolean);
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests without an Origin header
-      // such as Postman/server-to-server requests
       if (!origin) {
         return callback(null, true);
       }
@@ -44,10 +42,10 @@ app.use(
         return callback(null, true);
       }
 
-      console.log("CORS BLOCKED:", origin);
+      console.log("CORS BLOCKED ORIGIN:", origin);
 
       return callback(
-        new Error("Not allowed by CORS")
+        new Error(`CORS blocked origin: ${origin}`)
       );
     },
 
@@ -68,8 +66,6 @@ app.use(
     ],
   })
 );
-
-app.options("*", cors());
 
 app.use(express.json());
 app.use("/api/products", productRoutes);
